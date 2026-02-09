@@ -7,7 +7,7 @@ function Footer() {
       <p className="footer__text">
         Developed By Nathan Smith
       </p>
-      <footer className = "footer__year" >2026</footer>
+      <p className = "footer__year" >2026</p> 
     </footer>
   );
 }

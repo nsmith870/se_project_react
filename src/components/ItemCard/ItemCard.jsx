@@ -1,8 +1,8 @@
 import "./ItemCard.css";
 
 function ItemCard({ item, onCardClick }) {
-  const itemCardClick = () => {
-    onCardClick(itemCardClick);
+  const cardItemClick = () => {
+    onCardClick(cardItemClick);
   };
 
   return (
