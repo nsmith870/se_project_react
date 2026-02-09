@@ -6,6 +6,7 @@ import Main from "../Main/Main";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import ItemModal from "../ItemModal/ItemModal";
 import { getCurrentWeather, filterWeatherData } from "../../utils/weatherApi";
+import Footer from "../Footer/Footer"
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -43,6 +44,7 @@ function App() {
       <div className="app__container">
         <Header onAddBtnClick={onAddBtnClick} weatherData={weatherData} />
         <Main weatherData={weatherData} handleCardClick={handleCardClick} />
+        <Footer />
       </div>
       <ModalWithForm
         titleTxt="New garment"
