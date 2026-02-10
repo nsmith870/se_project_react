@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import { coordinates, apiKey } from "../../utils/constants";
+import { coordinates, apiKey, defaultClothingItems } from "../../utils/constants";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
@@ -14,6 +14,9 @@ function App() {
     temp: { F: 999, C: 999 },
     city: "",
   });
+
+
+   const [clothingItems, setClothingItems] = useState(defaultClothingItems);
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
 
@@ -43,7 +46,7 @@ function App() {
     <div className="app">
       <div className="app__container">
         <Header addOnBtnClick={addOnBtnClick} weatherData={weatherData} />
-        <Main weatherData={weatherData} handleCardClick={handleCardClick} />
+        <Main weatherData={weatherData} handleCardClick={handleCardClick}  clothingItems={clothingItems} />
         <Footer />
       </div>
       <ModalWithForm
