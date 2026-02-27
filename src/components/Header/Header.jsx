@@ -1,6 +1,7 @@
 import "./Header.css";
 import logo from "../../assets/wtwr-logo.svg";
 import avatar from "../../assets/wtwr-avatarImage.svg";
+import ToggleSwitch from "../TemperatureToggleSwitch/TemperatureToggleSwitch";
 
 function Header({ addOnBtnClick, weatherData }) {
   const currentDate = new Date().toLocaleString("default", {
@@ -14,6 +15,8 @@ function Header({ addOnBtnClick, weatherData }) {
       <p className="header__date-location">
         {currentDate}, {weatherData.city}
       </p>
+      <div className="header__btns">
+        <ToggleSwitch/>
       <button
         onClick={addOnBtnClick}
         type="button"
@@ -21,6 +24,7 @@ function Header({ addOnBtnClick, weatherData }) {
       >
         + Add Clothes
       </button>
+      </div>
       <div className="header__user-container">
         <p className="header__username">Terrance Tegegne</p>
         <img src={avatar} alt="Terrance Tegegne" className="header__avatar" />
