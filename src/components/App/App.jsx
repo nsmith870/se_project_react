@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
-import UserProfile from "../Profile/UserProfile";
+import Profile from "../Profile/Profile";
 import ItemModal from "../ItemModal/ItemModal";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import DeleteModal from "../DeleteModal/DeleteModal";
@@ -110,7 +110,7 @@ function App() {
             <Route
               path="/profile"
               element={
-                <UserProfile
+                <Profile
                   handleCardClick={handleCardClick}
                   clothingItems={clothingItems}
                 />
