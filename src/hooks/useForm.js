@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-export function useForm(defaultValues) {
-  const [values, setValues] = useState(defaultValues);
+export function useForm(inputValues) {
+  const [values, setValues] = useState(inputValues);
 
   function handleChange(evt) {
     const { name, value } = evt.target;

@@ -5,7 +5,7 @@ import closeBtn from "../../assets/close-btn.svg";
 
 
 function ItemModal({ activeModal, card, onCloseModalClick, onDeleteClick }) {
-  const isPreviewOpen = activeModal === "preview" && card?.link;
+  const isPreviewOpen = activeModal === "preview" && card?.imageUrl;
 
   return (
     <div className={`modal ${isPreviewOpen ? "modal_opened" : ""}`}>
@@ -19,7 +19,7 @@ function ItemModal({ activeModal, card, onCloseModalClick, onDeleteClick }) {
             <img src={closeBtn} alt="Close Icon" />
           </button>
 
-          <img src={card.link} alt="" className="modal__image" />
+          <img src={card.imageUrl} alt="" className="modal__image modal__image_type-preview" />
 
           <div className="modal__foot">
             <div className="modal__foot-row">

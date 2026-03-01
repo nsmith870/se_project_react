@@ -21,7 +21,7 @@
   transition: visibility 0s, opacity 0.6s;
 }
 
-.modal__content {
+.modal__content__content {
   background-color: #fff;
   position: relative;
   padding: 28px 28px 36px;
@@ -29,6 +29,7 @@
   border-radius: 20px;
   box-sizing: border-box;
 }
+
 
 .modal__title {
   margin: 0;

@@ -8,6 +8,7 @@
   visibility: hidden;
   opacity: 0;
   font-family: Cabinet Grotesk;
+
 }
 
 
@@ -20,12 +21,11 @@
 
 .modal__content_type_image {
   width: 498px;
-  max-width: calc(100vw - 32px);
   background: #fff;
   border-radius: 16px;
   position: relative;
-  padding: 0;
   overflow: hidden; 
+  padding: 0;
 }
 
 
@@ -42,6 +42,12 @@
 .modal__image {
   width: 100%;  
   display: block;
+  object-fit: cover;
+}
+
+.modal__image_type-preview{
+padding: 0;
+
 }
 .modal__foot {
   display: flex;

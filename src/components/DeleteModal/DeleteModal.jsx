@@ -1,14 +1,15 @@
 import "./DeleteModal.css";
+import "../ModalWithForm/ModalWithForm.css"
 import closeBtn from "../../assets/close-btn.svg";
 
 function DeleteModal({ isOpen, onClose, onConfirm }) {
   return (
     <div
-      className={`modal ${
+      className={`modal  ${
         isOpen ? "modal_opened" : ""
       } modal_type_delete`}
     >
-      <div className="modal__content">
+      <div className="modal__content__content modal__content_content_confirmation ">
 
         <button
           type="button"
@@ -18,7 +19,7 @@ function DeleteModal({ isOpen, onClose, onConfirm }) {
           <img src={closeBtn} alt="Close modal" />
         </button>
 
-        <h2 className="modal__title modal__title_type_delete">
+        <h2 className="modal__confirmation-title">
           Are you sure you want to delete this item?
           <br />
           This action is irreversible.

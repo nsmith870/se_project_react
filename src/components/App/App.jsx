@@ -9,11 +9,8 @@ import AddItemModal from "../AddItemModal/AddItemModal";
 import DeleteModal from "../DeleteModal/DeleteModal";
 import Footer from "../Footer/Footer";
 import { getCurrentWeather, filterWeatherData } from "../../utils/weatherApi";
-import {
-  coordinates,
-  apiKey,
-  defaultClothingItems,
-} from "../../utils/constants";
+import Api from "../../utils/api";
+import { coordinates, apiKey } from "../../utils/constants";
 import CurrentTemperatureUnitContext from "../Context/CurrentTemperatureUnit";
 
 function App() {
@@ -23,7 +20,7 @@ function App() {
     city: "",
   });
 
-  const [clothingItems, setClothingItems] = useState(defaultClothingItems);
+  const [clothingItems, setClothingItems] = useState([]);
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
@@ -42,15 +39,17 @@ function App() {
   };
 
   const onAddItemSubmitBtn = (data) => {
-    const newItem = {
-      name: data.name,
-      link: data.link,
-      weather: data.weatherType,
-    };
-    console.log(newItem);
-
-    setClothingItems([...clothingItems, newItem]);
-    closeActiveModal();
+    Api
+      .addItem({
+        name: data.name,
+        imageUrl: data.link,
+        weather: data.weatherType,
+      })
+      .then((newItem) => {
+        setClothingItems((prev) => [newItem, ...prev]);
+        closeActiveModal();
+      })
+      .catch(console.error);
   };
 
   const closeActiveModal = () => {
@@ -62,19 +61,33 @@ function App() {
   };
 
   const handleConfirmDelete = () => {
-    setClothingItems(clothingItems.filter((item) => item !== selectedCard));
-    closeActiveModal();
+    const id = selectedCard?._id || selectedCard?.id;
+    Api.deleteItem(id)
+      .then(() => {
+        setClothingItems((prev) =>
+          prev.filter((item) => (item._id || item.id) !== id)
+        );
+        closeActiveModal();
+      })
+      .catch(console.error);
   };
 
   useEffect(() => {
-    getCurrentWeather(coordinates, apiKey)
+    Api.getItems()
+      .then((data) => {
+        setClothingItems(data);
+      })
+      .catch(console.error);
+  }, []);
+
+  useEffect(() => {
+    getCurrentWeather(coordinates, apiKey) 
       .then((data) => {
         const filteredData = filterWeatherData(data);
         setWeatherData(filteredData);
       })
       .catch(console.error);
   }, []);
-
   return (
     <CurrentTemperatureUnitContext.Provider
       value={{ currentTemperatureUnit, handleToggleSwitchChange }}
