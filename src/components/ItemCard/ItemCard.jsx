@@ -1,8 +1,8 @@
 import "./ItemCard.css";
 
-function ItemCard({ item, onCardClick }) {
+function ItemCard({ item, handleCardClick }) {
   const cardItemClick = () => {
-    onCardClick(cardItemClick);
+    handleCardClick(cardItemClick);
   };
 
   return (
@@ -10,7 +10,7 @@ function ItemCard({ item, onCardClick }) {
       <h2 className="card__name">{item.name}</h2>
       <img
         onClick={() => {
-          onCardClick(item);
+          handleCardClick(item);
         }}
         className="card__img"
         src={item.imageUrl}

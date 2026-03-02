@@ -1,20 +1,15 @@
 import "./DeleteModal.css";
-import "../ModalWithForm/ModalWithForm.css"
+import "../ModalWithForm/ModalWithForm.css";
 import closeBtn from "../../assets/close-btn.svg";
 
-function DeleteModal({ isOpen, onClose, onConfirm }) {
+function DeleteModal({ isOpen, handleCloseModalClick, handleConfirmDelete }) {
   return (
-    <div
-      className={`modal  ${
-        isOpen ? "modal_opened" : ""
-      } modal_type_delete`}
-    >
+    <div className={`modal  ${isOpen ? "modal_opened" : ""} modal_type_delete`}>
       <div className="modal__content__content modal__content_content_confirmation ">
-
         <button
           type="button"
           className="modal__close-btn"
-          onClick={onClose}
+          onClick={handleCloseModalClick}
         >
           <img src={closeBtn} alt="Close modal" />
         </button>
@@ -29,20 +24,15 @@ function DeleteModal({ isOpen, onClose, onConfirm }) {
           <button
             type="button"
             className="modal__confirm-btn"
-            onClick={onConfirm}
+            onClick={handleConfirmDelete}
           >
             Yes, delete item
           </button>
 
-          <button
-            type="button"
-            className="modal__cancel-btn"
-            onClick={onClose}
-          >
+          <button type="button" className="modal__cancel-btn" onClick={handleConfirmDelete}>
             Cancel
           </button>
         </div>
-
       </div>
     </div>
   );

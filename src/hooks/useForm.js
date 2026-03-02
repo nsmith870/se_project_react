@@ -8,5 +8,5 @@ export function useForm(inputValues) {
     setValues({ ...values, [name]: value });
   }
 
-  return  {values, setValues, handleChange};
+  return { values, setValues, handleChange };
 }

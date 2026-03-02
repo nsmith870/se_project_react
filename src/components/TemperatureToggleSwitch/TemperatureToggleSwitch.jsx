@@ -7,7 +7,6 @@ export default function ToggleSwitch() {
     CurrentTemperatureUnitContext,
   );
 
-  
   return (
     <label className="toggle-switch">
       <input
@@ -18,10 +17,18 @@ export default function ToggleSwitch() {
       <span className="toggle-switch__circle"></span>
       <span
         className={`toggle-switch__txt toggle-switch__txt_F ${
-          currentTemperatureUnit === "F" ? "toggle-switch__txt_white" : ""}`}>F</span>
+          currentTemperatureUnit === "F" ? "toggle-switch__txt_white" : ""
+        }`}
+      >
+        F
+      </span>
       <span
         className={`toggle-switch__txt toggle-switch__txt_C ${
-          currentTemperatureUnit === "C" ? "toggle-switch__txt_white" : ""}`}>C</span>
+          currentTemperatureUnit === "C" ? "toggle-switch__txt_white" : ""
+        }`}
+      >
+        C
+      </span>
     </label>
   );
 }

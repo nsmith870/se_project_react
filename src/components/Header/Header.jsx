@@ -12,8 +12,8 @@ function Header({ addOnBtnClick, weatherData }) {
 
   return (
     <header className="header">
-      <NavLink  to ="/">
-      <img alt="WTWR logo" src={logo} className="header__logo" />
+      <NavLink to="/">
+        <img alt="WTWR logo" src={logo} className="header__logo" />
       </NavLink>
       <p className="header__date-location">
         {currentDate}, {weatherData.city}

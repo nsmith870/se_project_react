@@ -10,12 +10,7 @@ export default function SideBar() {
       <div className="sidebar__user-container">
         <p className="sidebar__username">{username}</p>
 
-        <img
-          className="sidebar__avatar"
-          src={avatar}
-          alt="user avatar"
-        />
-
+        <img className="sidebar__avatar" src={avatar} alt="user avatar" />
       </div>
     </aside>
   );

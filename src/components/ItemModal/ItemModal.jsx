@@ -1,10 +1,7 @@
 import "./ItemModal.css";
 import closeBtn from "../../assets/close-btn.svg";
 
-
-
-
-function ItemModal({ activeModal, card, onCloseModalClick, onDeleteClick }) {
+function ItemModal({ activeModal, card, handleCloseModalClick, handleDeleteClick }) {
   const isPreviewOpen = activeModal === "preview" && card?.imageUrl;
 
   return (
@@ -12,14 +9,18 @@ function ItemModal({ activeModal, card, onCloseModalClick, onDeleteClick }) {
       {isPreviewOpen && (
         <div className="modal__content modal__content_type_image">
           <button
-            onClick={onCloseModalClick}
+            onClick={handleCloseModalClick}
             type="button"
             className="modal__close-btn"
           >
             <img src={closeBtn} alt="Close Icon" />
           </button>
 
-          <img src={card.imageUrl} alt="" className="modal__image modal__image_type-preview" />
+          <img
+            src={card.imageUrl}
+            alt={card.name}
+            className="modal__image modal__image_type-preview"
+          />
 
           <div className="modal__foot">
             <div className="modal__foot-row">
@@ -27,7 +28,7 @@ function ItemModal({ activeModal, card, onCloseModalClick, onDeleteClick }) {
               <button
                 className="modal__delete-btn"
                 type="button"
-                onClick={onDeleteClick}
+                onClick={handleDeleteClick}
               >
                 Delete Item
               </button>

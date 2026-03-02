@@ -39,12 +39,11 @@ function App() {
   };
 
   const onAddItemSubmitBtn = (data) => {
-    Api
-      .addItem({
-        name: data.name,
-        imageUrl: data.link,
-        weather: data.weatherType,
-      })
+    Api.addItem({
+      name: data.name,
+      imageUrl: data.link,
+      weather: data.weatherType,
+    })
       .then((newItem) => {
         setClothingItems((prev) => [newItem, ...prev]);
         closeActiveModal();
@@ -65,7 +64,7 @@ function App() {
     Api.deleteItem(id)
       .then(() => {
         setClothingItems((prev) =>
-          prev.filter((item) => (item._id || item.id) !== id)
+          prev.filter((item) => (item._id || item.id) !== id),
         );
         closeActiveModal();
       })
@@ -81,7 +80,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    getCurrentWeather(coordinates, apiKey) 
+    getCurrentWeather(coordinates, apiKey)
       .then((data) => {
         const filteredData = filterWeatherData(data);
         setWeatherData(filteredData);
@@ -113,6 +112,7 @@ function App() {
                 <Profile
                   handleCardClick={handleCardClick}
                   clothingItems={clothingItems}
+                  handleAddItemClick={addOnBtnClick}
                 />
               }
             />
@@ -122,19 +122,19 @@ function App() {
         </div>
         <AddItemModal
           isOpen={activeModal === "add-garment"}
-          onCloseModalClick={closeActiveModal}
-          onAddItemSubmitBtn={onAddItemSubmitBtn}
+          handleCloseModalClick={closeActiveModal}
+          handleAddItemSubmitBtn={onAddItemSubmitBtn}
         />
         <ItemModal
           activeModal={activeModal}
           card={selectedCard}
-          onCloseModalClick={closeActiveModal}
-          onDeleteClick={handleDeleteClick}
+          handleCloseModalClick={closeActiveModal}
+          handleDeleteClick={handleDeleteClick}
         />
         <DeleteModal
           isOpen={activeModal === "delete"}
-          onClose={closeActiveModal}
-          onConfirm={handleConfirmDelete}
+          handleCloseModalClick={closeActiveModal}
+          handleConfirmDelete={handleConfirmDelete}
         />
       </div>
     </CurrentTemperatureUnitContext.Provider>

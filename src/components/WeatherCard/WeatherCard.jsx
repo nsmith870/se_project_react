@@ -13,17 +13,13 @@ function WeatherCard({ weatherData }) {
     );
   });
 
- const weatherOptionUrl = filteredOptions[0]?.url || "/fallback-weather.png";
+  const weatherOptionUrl = filteredOptions[0]?.url || "/fallback-weather.png";
 
-
-const altText = weatherData?.condition
+  const altText = weatherData?.condition
     ? `Weather: ${weatherData.condition}${weatherData.isDay ? " (day)" : " (night)"}`
     : "Weather background";
 
-
-
-
-   return (
+  return (
     <section className="weather-card">
       <p className="weather-card__temp">
         {weatherData.temp[currentTemperatureUnit]} &deg;

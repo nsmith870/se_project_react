@@ -1,4 +1,3 @@
-
 const baseUrl = "http://localhost:3001";
 
 const headers = {
@@ -6,22 +5,22 @@ const headers = {
 };
 
 const handleResponse = (res) => {
-  return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`)
+  return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
 };
 
- const getItems = () => {
+const getItems = () => {
   return fetch(`${baseUrl}/items`, { headers }).then(handleResponse);
 };
 
-const addItem = ({ name, imageUrl, weather  }) => {
+const addItem = ({ name, imageUrl, weather }) => {
   return fetch(`${baseUrl}/items`, {
     method: "POST",
     headers,
-    body: JSON.stringify({ name, imageUrl,weather, }),
+    body: JSON.stringify({ name, imageUrl, weather }),
   }).then(handleResponse);
 };
 
- const deleteItem = (id) => {
+const deleteItem = (id) => {
   return fetch(`${baseUrl}/items/${id}`, {
     method: "DELETE",
     headers,

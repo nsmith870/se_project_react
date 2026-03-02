@@ -1,25 +1,25 @@
 .clothing-section__row {
   opacity: 1;
   display: flex;
-  align-items: center; 
-  gap: 16px;           
+  align-items: center;
+  gap: 16px;
   position: relative;
   font-family: Cabinet Grotesk;
   font-weight: 700;
-  margin: 0 0 16px;    
+  margin: 0 0 16px;
 }
 
 .clothing-section__txt {
   font-family: Cabinet Grotesk;
   font-size: 20px;
-  font-weight: 700;    
+  font-weight: 700;
   margin: 0;
 }
 
 .clothing-section__list {
-  display: grid;                      
+  display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px;                         
+  gap: 16px;
   list-style-type: none;
   padding: 0;
   margin: 0;

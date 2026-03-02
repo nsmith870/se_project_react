@@ -1,28 +1,38 @@
+import { useEffect } from "react";
 import { useForm } from "../../hooks/useForm";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-const AddItemModal = ({ isOpen, onAddItemSubmitBtn, onCloseModalClick }) => {
+const AddItemModal = ({
+  isOpen,
+  handleAddItemSubmitBtn,
+  handleCloseModalClick,
+}) => {
   const defaultValues = {
     name: "",
     link: "",
     weatherType: "",
   };
 
-  const { values, handleChange } = useForm(defaultValues);
+  const { values, handleChange, setValues } = useForm(defaultValues);
+
+  useEffect(() => {
+    if (isOpen) {
+      setValues(defaultValues);
+    }
+  }, [isOpen, setValues]);
 
   function handleSubmit(evt) {
     evt.preventDefault();
-    onAddItemSubmitBtn(values);
+    handleAddItemSubmitBtn(values);
   }
-
   return (
     <ModalWithForm
       isOpen={isOpen}
       name="add-garment"
       titleTxt="New garment"
       btnTxt="Add Garment"
-      onCloseModalClick={onCloseModalClick}
-      onSubmit={handleSubmit}
+      handleCloseModalClick={handleCloseModalClick}
+      handleSubmit={handleSubmit}
     >
       <label htmlFor="name" className="modal__label">
         Name{" "}
