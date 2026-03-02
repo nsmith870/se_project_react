@@ -1,8 +1,8 @@
 import ClothesSection from "../ClothesSection/ClothesSection";
 import SideBar from "../SideBar/SideBar";
-import "./UserProfile.css";
+import "./Profile.css";
 
-export default function UserProfile({ clothingItems, handleCardClick }) {
+export default function Profile({ clothingItems, handleCardClick }) {
   return (
     <section className="profile">
       <SideBar />
