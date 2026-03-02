@@ -1,7 +1,7 @@
 import "./ClothesSection.css";
 import ItemCard from "../ItemCard/ItemCard";
 
-export default function ClothingSection({clothingItems,handleCardClick}) {
+export default function ClothesSection({clothingItems,handleCardClick}) {
   return (
     <section className="clothing-section">
         <div className="clothing-section__row">
