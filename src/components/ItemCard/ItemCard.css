@@ -1,5 +1,6 @@
 .card {
   grid-template-columns: repeat(auto-fit, 325px);
+  width: 100%;
   opacity: 1;
   display: flex;
   justify-content: center;

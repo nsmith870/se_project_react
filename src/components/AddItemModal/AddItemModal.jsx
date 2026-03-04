@@ -63,7 +63,7 @@ const AddItemModal = ({
 
       <fieldset className="modal__radio-btns">
         <legend className="modal__radio-txt">Select the Weather Type:</legend>
-        <div className="modal__label_type_radio">
+        <div className="modal__label modal__label_type_radio">
           <input
             type="radio"
             id="weatherHot"

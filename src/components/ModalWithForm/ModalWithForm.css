@@ -18,7 +18,9 @@
 .modal_opened {
   visibility: visible;
   opacity: 1;
-  transition: visibility 0s, opacity 0.6s;
+  transition:
+    visibility 0s,
+    opacity 0.6s;
 }
 
 .modal__content__content {
@@ -29,7 +31,6 @@
   border-radius: 20px;
   box-sizing: border-box;
 }
-
 
 .modal__title {
   margin: 0;
@@ -62,6 +63,14 @@
   padding-bottom: 24px;
 }
 
+.modal__label_type_radio {
+  padding: 0;
+  height: unset;
+  width: unset;
+  display: flex;
+  gap: 8px;
+}
+
 .modal__input {
   display: block;
   border: none;
@@ -75,6 +84,8 @@
   max-height: 108px;
   border: none;
   display: flex;
+  padding: 0;
+  margin: 0;
   flex-direction: column;
   gap: 12px;
   font-family: Cabinet Grotesk;
@@ -86,6 +97,7 @@
   font-size: 16px;
   line-height: 20px;
   letter-spacing: 0%;
+  margin-bottom: 12px;
 }
 
 .modal__submit-btn {
